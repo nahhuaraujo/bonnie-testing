@@ -42,6 +42,8 @@ test('Button starts enabled and toggles whenever checkbox is clicked', () => {
   const checkbox = screen.getByRole('checkbox');
   const button = screen.getByRole('button');
 
+  // screen.getByRole('checkbox', { name: /disable button/i }); // Se puede especificar el elemento con name si hay mas de uno usando un label
+
   expect(checkbox).not.toBeChecked();
   expect(button).toBeEnabled();
 
