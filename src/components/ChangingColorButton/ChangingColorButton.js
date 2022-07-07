@@ -6,28 +6,36 @@ const ChangingColorButton = () => {
 
   const newColor = buttonColor === 'red' ? 'blue' : 'red';
 
-  const style =
-    buttonColor === 'red'
-      ? { backgroundColor: 'red' }
-      : { backgroundColor: 'blue', color: 'white' };
+  let style;
+
+  if (isDisabled) style = { backgroundColor: 'grey', color: 'white' };
+  else if (buttonColor === 'red') style = { backgroundColor: buttonColor };
+  else if (buttonColor === 'blue')
+    style = { backgroundColor: buttonColor, color: 'white' };
 
   return (
     <div>
-      <input
-        type='checkbox'
-        onClick={e => {
-          setIsDisabled(e.target.checked);
-        }}
-      />
-      <button
-        style={style}
-        disabled={isDisabled}
-        onClick={() => {
-          setButtonColor(newColor);
-        }}
-      >
-        Change to {newColor}
-      </button>
+      <div>
+        <button
+          style={style}
+          disabled={isDisabled}
+          onClick={() => {
+            setButtonColor(newColor);
+          }}
+        >
+          Change to {newColor}
+        </button>
+      </div>
+      <div>
+        <input
+          id='disable-button-checkbox'
+          type='checkbox'
+          onClick={e => {
+            setIsDisabled(e.target.checked);
+          }}
+        />
+        <label htmlFor='disable-button-checkbox'>Disable button</label>
+      </div>
     </div>
   );
 };
