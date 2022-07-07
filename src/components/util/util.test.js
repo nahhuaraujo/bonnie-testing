@@ -6,10 +6,12 @@ describe('Separates camelCase words with spaces between capital letters', () => 
   });
 
   test('Works for one capital letter inside the word', () => {
-    expect(replaceCamelCaseWithSpaces('')).toBe('');
+    expect(replaceCamelCaseWithSpaces('MidnightBlue')).toBe('Midnight Blue');
   });
 
   test('Works for multiple capital letters inside the word', () => {
-    expect(replaceCamelCaseWithSpaces('')).toBe('');
+    expect(replaceCamelCaseWithSpaces('MediumVioletRed')).toBe(
+      'Medium Violet Red'
+    );
   });
 });
