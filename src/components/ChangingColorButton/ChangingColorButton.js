@@ -9,9 +9,9 @@ const ChangingColorButton = () => {
   let style;
 
   if (isDisabled) style = { backgroundColor: 'grey', color: 'white' };
+  else if (buttonColor === 'red') style = { backgroundColor: buttonColor };
   else if (buttonColor === 'blue')
     style = { backgroundColor: buttonColor, color: 'white' };
-  else if (buttonColor === 'red') style = { backgroundColor: buttonColor };
 
   return (
     <div>
