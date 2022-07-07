@@ -15,7 +15,7 @@ test('Components initial conditions are ok', () => {
   expect(checkbox).not.toBeChecked();
 });
 
-test('Components has correct initial color and changes with a click', () => {
+test('Button has correct initial color and changes with a click', () => {
   // Renderizamos el componente
   render(<ChangingColorButton />);
 
@@ -34,4 +34,24 @@ test('Components has correct initial color and changes with a click', () => {
 
   // Con el cambio de color, verificamos el texto del boton haya cambiado a 'red'
   expect(button.textContent).toBe('Change to red');
+});
+
+test('Button starts enabled and toggles whenever checkbox is clicked', () => {
+  render(<ChangingColorButton />);
+
+  const checkbox = screen.getByRole('checkbox');
+  const button = screen.getByRole('button');
+
+  expect(checkbox).not.toBeChecked();
+  expect(button).toBeEnabled();
+
+  fireEvent.click(checkbox);
+
+  expect(checkbox).toBeChecked();
+  expect(button).toBeDisabled();
+
+  fireEvent.click(checkbox);
+
+  expect(checkbox).not.toBeChecked();
+  expect(button).toBeEnabled();
 });

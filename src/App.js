@@ -1,10 +1,9 @@
-import { ChangingColorButton, DisablingButton } from './components';
+import { ChangingColorButton } from './components';
 
 const App = () => {
   return (
     <main>
       <ChangingColorButton />
-      <DisablingButton />
     </main>
   );
 };
